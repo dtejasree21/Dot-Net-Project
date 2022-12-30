@@ -1,0 +1,12 @@
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\bin\Debug\EmpPostLibrary.dll.config
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\bin\Debug\EmpPostLibrary.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\bin\Debug\EmpPostLibrary.pdb
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\bin\Debug\EntityFramework.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\bin\Debug\EntityFramework.xml
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\obj\Debug\EmpPostLibrary.csproj.CoreCompileInputs.cache
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\obj\Debug\EmpPostLibrary.csproj.CopyComplete
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\obj\Debug\EmpPostLibrary.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\obj\Debug\EmpPostLibrary.pdb
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmpPostLibrary\obj\Debug\EmpPostLibrary.csproj.AssemblyReference.cache

@@ -1,0 +1,31 @@
+JobPost Table
+--------------
+
+CREATE TABLE IF NOT EXISTS public."JobPost"
+(
+    "PostId" integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    "JobId" character(6) COLLATE pg_catalog."default",
+    "DOP" date,
+    "LastDate" date,
+    "Vacancies" integer NOT NULL,
+    CONSTRAINT "JobPost_pkey" PRIMARY KEY ("PostId"),
+    CONSTRAINT "JobPost_JobId_fkey" FOREIGN KEY ("JobId")
+        REFERENCES public."Job" ("JobId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+
+Job Table
+-----------
+
+CREATE TABLE IF NOT EXISTS public."Job"
+(
+    "JobId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Job_pkey" PRIMARY KEY ("JobId")
+)
+
+-> Insert Script
+
+INSERT INTO public."Job"("JobId")
+	VALUES('JOB001'),('JOB002'),('JOB003'),('JOB004'),('JOB005'),('JOB006');

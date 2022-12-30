@@ -1,0 +1,49 @@
+﻿@using EmpSkillLibrary;
+@model EmpSkill
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>EmpSkill</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkillId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkillId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkillExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkillExperience)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

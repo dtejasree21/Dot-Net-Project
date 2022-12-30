@@ -1,0 +1,107 @@
+Job Table
+----------
+
+CREATE TABLE IF NOT EXISTS public."Job"
+(
+    "JobId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "JobTitle" text COLLATE pg_catalog."default" NOT NULL,
+    "JobDesc" text COLLATE pg_catalog."default",
+    "Salary" numeric,
+    CONSTRAINT pk_job PRIMARY KEY ("JobId")
+)
+
+
+--> Insert Script
+INSERT INTO public."Job"("JobId", "JobTitle", "JobDesc", "Salary")
+	VALUES ('JOB001' ,   'SDE'  ,  'job1' ,   230000),
+('JOB002'  ,  'SDET'  ,  'job2' ,   530000),
+('JOB003' ,   'QA'  ,  'job3' ,   98000),
+('JOB004'   , 'Manager',    'job4',    1120000),
+('JOB005'    ,'TeamLead',    'job5',    930000),
+('JOB006'    ,'Architect',    'job6',    189000);
+
+
+
+Skill Table
+-----------
+
+CREATE TABLE IF NOT EXISTS public."Skill"
+(
+    "SkillId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "SkillName" text COLLATE pg_catalog."default" NOT NULL,
+    "SkillLevel" character(1) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Skill_pkey" PRIMARY KEY ("SkillId"),
+    CONSTRAINT ck_skilllvl CHECK ("SkillLevel" = ANY (ARRAY['B'::bpchar, 'I'::bpchar, 'A'::bpchar]))
+)
+
+-> Insert Script
+INSERT INTO public."Skill"("SkillId", "SkillName", "SkillLevel")
+	VALUES ('SKL001', 'Python','I' ),('SKL002','AWS','B'),
+	('SKL003', 'Java','I' ),('SKL004','DotNet','A'),
+	('SKL005', 'React','I' ),('SKL006','C++','A');
+
+
+JobSkill Table
+---------------
+
+CREATE TABLE IF NOT EXISTS public."JobSkill"
+(
+    "JobId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "SkillId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "Experience" integer NOT NULL,
+    CONSTRAINT pk_comp_jobskill PRIMARY KEY ("JobId", "SkillId"),
+    CONSTRAINT "JobSkill_JobId_fkey" FOREIGN KEY ("JobId")
+        REFERENCES public."Job" ("JobId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT "JobSkill_SkillId_fkey" FOREIGN KEY ("SkillId")
+        REFERENCES public."Skill" ("SkillId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+--> Insert Script
+INSERT INTO public."JobSkill"("SkillId" ,"JobId", "Experience")
+	VALUES 
+	('SKL001','JOB001',3),
+	('SKL001','JOB003',2),
+	('SKL002','JOB001',2),
+	('SKL003','JOB004',6),
+	('SKL003','JOB005',4),
+	('SKL004','JOB002',7),
+	('SKL004','JOB001',8),
+	('SKL004','JOB003',2),
+	('SKL005','JOB006',9),
+	('SKL006','JOB002',3),
+	('SKL006','JOB001',1),
+	('SKL006','JOB004',7),
+	('SKL006','JOB003',4);
+
+
+
+Employee Table
+---------------
+
+CREATE TABLE IF NOT EXISTS public."Employee"
+(
+    "EmpId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "EmpName" text COLLATE pg_catalog."default" NOT NULL,
+    "EmailId" text COLLATE pg_catalog."default" NOT NULL,
+    "PhoneNo" text COLLATE pg_catalog."default" NOT NULL,
+    "TotalExperience" integer NOT NULL,
+    "JobId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Employee_pkey" PRIMARY KEY ("EmpId"),
+    CONSTRAINT "Employee_JobId_fkey" FOREIGN KEY ("JobId")
+        REFERENCES public."Job" ("JobId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+-> Insert Script
+INSERT INTO public."Employee"("EmpId", "EmpName", "EmailId", "PhoneNo", "TotalExperience", "JobId")
+	VALUES ('EMP001', 'Abhigna', 'abhigna@gmail.com','9381345322', 1, 'JOB001'),
+	('EMP002', 'Abhishek', 'Abhishek@gmail.com','9381335322', 2, 'JOB001'),
+	('EMP003', 'Tejasree', 'Tejasree@gmail.com','6781345322', 1, 'JOB002'),
+	('EMP004', 'Unnathi', 'Unnathi@gmail.com','7568345322', 9, 'JOB002'),
+	('EMP005', 'Naruto', 'Naruto@gmail.com','9987645322', 3, 'JOB003'),
+	('EMP006', 'Sasuke', 'Sasuke@gmail.com','9564325322', 1, 'JOB006');

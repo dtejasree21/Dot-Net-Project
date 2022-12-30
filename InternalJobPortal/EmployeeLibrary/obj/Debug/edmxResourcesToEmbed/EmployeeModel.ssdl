@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeDBModel.Store" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 15.0.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="EmpName" Type="text" Nullable="false" />
+    <Property Name="EmailId" Type="text" Nullable="false" />
+    <Property Name="PhoneNo" Type="text" Nullable="false" />
+    <Property Name="TotalExperience" Type="int" Nullable="false" />
+    <Property Name="JobId" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <Association Name="public_Employee_JobId_fkey">
+    <End Role="Job" Type="Self.Job" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="JobId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeDBModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Job" EntityType="Self.Job" Schema="public" store:Type="Tables" />
+    <AssociationSet Name="public_Employee_JobId_fkey" Association="Self.public_Employee_JobId_fkey">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

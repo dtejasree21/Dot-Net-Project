@@ -1,0 +1,50 @@
+EmpPost Table
+---------------
+
+CREATE TABLE IF NOT EXISTS public."EmpPost"
+(
+    "PostId" integer NOT NULL,
+    "EmpId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "ApplyDate" date NOT NULL,
+    "ApplicationStatus" text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "EmpPost_pkey" PRIMARY KEY ("PostId", "EmpId"),
+    CONSTRAINT "EmpPost_EmpId_fkey" FOREIGN KEY ("EmpId")
+        REFERENCES public."Employee" ("EmpId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT "EmpPost_PostId_fkey" FOREIGN KEY ("PostId")
+        REFERENCES public."JobPost" ("PostId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT chk_appnstatus CHECK ("ApplicationStatus" = ANY (ARRAY['Reviewing'::text, 'Accepted'::text, 'Rejected'::text]))
+)
+
+
+
+
+Employee Table
+---------------
+
+
+CREATE TABLE IF NOT EXISTS public."Employee"
+(
+    "EmpId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Employee_pkey" PRIMARY KEY ("EmpId")
+)
+
+
+->Insert script 
+  INSERT INTO public."Employee"("EmpId") VALUES ('EMP001'),('EMP002'),('EMP003'),('EMP004'),('EMP005'),('EMP006');
+
+
+
+JobPost Table
+-------------
+
+CREATE TABLE IF NOT EXISTS public."JobPost"
+(
+    "PostId" integer NOT NULL,
+    CONSTRAINT "JobPost_pkey" PRIMARY KEY ("PostId")
+)
+
+

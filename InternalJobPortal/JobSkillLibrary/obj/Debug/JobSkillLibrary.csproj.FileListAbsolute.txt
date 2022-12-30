@@ -1,0 +1,11 @@
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\bin\Debug\JobSkillLibrary.dll.config
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\bin\Debug\JobSkillLibrary.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\bin\Debug\JobSkillLibrary.pdb
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\bin\Debug\EntityFramework.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\bin\Debug\EntityFramework.xml
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\obj\Debug\JobSkillLibrary.csproj.CoreCompileInputs.cache
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\obj\Debug\JobSkillLibrary.csproj.CopyComplete
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\obj\Debug\JobSkillLibrary.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\JobSkillLibrary\obj\Debug\JobSkillLibrary.pdb

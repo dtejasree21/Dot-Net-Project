@@ -1,0 +1,43 @@
+﻿@using EmpSkillLibrary;
+@model EmpSkill
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>EmpSkill</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkillId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkillId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkillExperience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkillExperience)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  empId = Model.EmpId, skillId = Model.SkillId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

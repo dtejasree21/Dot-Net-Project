@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobDBModel.Store" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 15.0.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="JobTitle" Type="text" Nullable="false" />
+    <Property Name="JobDesc" Type="text" />
+    <Property Name="Salary" Type="numeric" Precision="29" Scale="15" />
+  </EntityType>
+  <EntityContainer Name="JobDBModelStoreContainer">
+    <EntitySet Name="Job" EntityType="Self.Job" Schema="public" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

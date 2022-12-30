@@ -1,0 +1,2 @@
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\InternalJobPortal\obj\Debug\InternalJobPortal.csproj.AssemblyReference.cache
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\InternalJobPortal\obj\Debug\InternalJobPortal.csproj.CoreCompileInputs.cache

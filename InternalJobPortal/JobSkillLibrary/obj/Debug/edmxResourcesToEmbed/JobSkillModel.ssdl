@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobSkillDBModel.Store" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 15.0.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobSkill">
+    <Key>
+      <PropertyRef Name="JobId" />
+      <PropertyRef Name="SkillId" />
+    </Key>
+    <Property Name="JobId" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="SkillId" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="Experience" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SkillId" />
+    </Key>
+    <Property Name="SkillId" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <Association Name="public_JobSkill_JobId_fkey">
+    <End Role="Job" Type="Self.Job" Multiplicity="1" />
+    <End Role="JobSkill" Type="Self.JobSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="JobId" />
+      </Principal>
+      <Dependent Role="JobSkill">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="public_JobSkill_SkillId_fkey">
+    <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+    <End Role="JobSkill" Type="Self.JobSkill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Skill">
+        <PropertyRef Name="SkillId" />
+      </Principal>
+      <Dependent Role="JobSkill">
+        <PropertyRef Name="SkillId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobSkillDBModelStoreContainer">
+    <EntitySet Name="Job" EntityType="Self.Job" Schema="public" store:Type="Tables" />
+    <EntitySet Name="JobSkill" EntityType="Self.JobSkill" Schema="public" store:Type="Tables" />
+    <EntitySet Name="Skill" EntityType="Self.Skill" Schema="public" store:Type="Tables" />
+    <AssociationSet Name="public_JobSkill_JobId_fkey" Association="Self.public_JobSkill_JobId_fkey">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="JobSkill" EntitySet="JobSkill" />
+    </AssociationSet>
+    <AssociationSet Name="public_JobSkill_SkillId_fkey" Association="Self.public_JobSkill_SkillId_fkey">
+      <End Role="Skill" EntitySet="Skill" />
+      <End Role="JobSkill" EntitySet="JobSkill" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

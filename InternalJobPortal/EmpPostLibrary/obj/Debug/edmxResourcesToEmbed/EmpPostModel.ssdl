@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmpPostDBModel.Store" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 15.0.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmpPost">
+    <Key>
+      <PropertyRef Name="PostId" />
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="EmpId" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="ApplyDate" Type="date" Nullable="false" />
+    <Property Name="ApplicationStatus" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobPost">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="public_EmpPost_EmpId_fkey">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmpPost" Type="Self.EmpPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="EmpPost">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="public_EmpPost_PostId_fkey">
+    <End Role="JobPost" Type="Self.JobPost" Multiplicity="1" />
+    <End Role="EmpPost" Type="Self.EmpPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobPost">
+        <PropertyRef Name="PostId" />
+      </Principal>
+      <Dependent Role="EmpPost">
+        <PropertyRef Name="PostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmpPostDBModelStoreContainer">
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="public" store:Type="Tables" />
+    <EntitySet Name="EmpPost" EntityType="Self.EmpPost" Schema="public" store:Type="Tables" />
+    <EntitySet Name="JobPost" EntityType="Self.JobPost" Schema="public" store:Type="Tables" />
+    <AssociationSet Name="public_EmpPost_EmpId_fkey" Association="Self.public_EmpPost_EmpId_fkey">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="EmpPost" EntitySet="EmpPost" />
+    </AssociationSet>
+    <AssociationSet Name="public_EmpPost_PostId_fkey" Association="Self.public_EmpPost_PostId_fkey">
+      <End Role="JobPost" EntitySet="JobPost" />
+      <End Role="EmpPost" EntitySet="EmpPost" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

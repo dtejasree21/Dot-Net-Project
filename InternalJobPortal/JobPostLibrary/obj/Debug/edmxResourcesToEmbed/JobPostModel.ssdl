@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobPostDBModel.Store" Provider="Devart.Data.PostgreSql" ProviderManifestToken="PostgreSQL, 15.0.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="char" MaxLength="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobPost">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobId" Type="char" MaxLength="6" />
+    <Property Name="DOP" Type="date" />
+    <Property Name="LastDate" Type="date" />
+    <Property Name="Vacancies" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="public_JobPost_JobId_fkey">
+    <End Role="Job" Type="Self.Job" Multiplicity="0..1" />
+    <End Role="JobPost" Type="Self.JobPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Job">
+        <PropertyRef Name="JobId" />
+      </Principal>
+      <Dependent Role="JobPost">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JobPostDBModelStoreContainer">
+    <EntitySet Name="Job" EntityType="Self.Job" Schema="public" store:Type="Tables" />
+    <EntitySet Name="JobPost" EntityType="Self.JobPost" Schema="public" store:Type="Tables" />
+    <AssociationSet Name="public_JobPost_JobId_fkey" Association="Self.public_JobPost_JobId_fkey">
+      <End Role="Job" EntitySet="Job" />
+      <End Role="JobPost" EntitySet="JobPost" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

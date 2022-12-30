@@ -1,0 +1,45 @@
+EmpSkill Table
+---------------
+CREATE TABLE IF NOT EXISTS public."EmpSkill"
+(
+    "EmpId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "SkillId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    "SkillExperience" integer NOT NULL,
+    CONSTRAINT pk_empskill PRIMARY KEY ("EmpId", "SkillId"),
+    CONSTRAINT "EmpSkill_EmpId_fkey" FOREIGN KEY ("EmpId")
+        REFERENCES public."Employee" ("EmpId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT "EmpSkill_SkillId_fkey" FOREIGN KEY ("SkillId")
+        REFERENCES public."Skill" ("SkillId") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+Employee Table
+---------------
+
+CREATE TABLE IF NOT EXISTS public."Employee"
+(
+    "EmpId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Employee_pkey" PRIMARY KEY ("EmpId")
+)
+
+->Insert script 
+  INSERT INTO public."Employee"("EmpId") VALUES ('EMP001'),('EMP002'),('EMP003'),('EMP004'),('EMP005'),('EMP006');
+
+
+
+Skill Table
+-----------
+
+CREATE TABLE IF NOT EXISTS public."Skill"
+(
+    "SkillId" character(6) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Skill_pkey" PRIMARY KEY ("SkillId")
+)
+
+-> Insert Script
+
+INSERT INTO public."Skill"("SkillId")
+VALUES ('SKL001'),('SKL002'),('SKL003' ),('SKL004'),('SKL005' ),('SKL006');

@@ -1,0 +1,11 @@
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\bin\Debug\EmployeeLibrary.dll.config
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\bin\Debug\EmployeeLibrary.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\bin\Debug\EmployeeLibrary.pdb
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\bin\Debug\EntityFramework.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\bin\Debug\EntityFramework.xml
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\obj\Debug\EmployeeLibrary.csproj.CoreCompileInputs.cache
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\obj\Debug\EmployeeLibrary.csproj.CopyComplete
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\obj\Debug\EmployeeLibrary.dll
+C:\DotNetTraining\InternalJobPortal\InternalJobPortal\EmployeeLibrary\obj\Debug\EmployeeLibrary.pdb
